@@ -1,0 +1,18 @@
+<p>demon-slayer-characters-list works!</p>
+<h3>{{firstName | titlecase}}</h3>
+<h3>{{firstLastName }}</h3>
+<h3>{{objectExample | json}}</h3>
+<h3>{{amount |currency}}</h3>
+<h3>{{date |date}}</h3>
+
+
+@for (item of getDemonSlayerCharacterList(); track item.id) {
+  <app-character-card
+    [data]="item"
+    [type]="characterCardType.ROUNDED"
+  >
+  </app-character-card>
+
+} @empty {
+  <p>no hay elemento para mostrar</p>
+}

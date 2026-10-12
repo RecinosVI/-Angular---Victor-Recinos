@@ -1,0 +1,17 @@
+<p>demon-slayer-characters-list works!</p>
+
+<app-primary-character-card>
+  <p>koku</p>
+</app-primary-character-card>
+
+@for (item of getDbzCharacterList(); track item.id) {
+  <app-character-card
+    [data]="item"
+    [type]="characterCardType.FILLED"
+  >
+    <p>koku</p>
+  </app-character-card>
+
+} @empty {
+  <p>no hay elemento para mostrar</p>
+}

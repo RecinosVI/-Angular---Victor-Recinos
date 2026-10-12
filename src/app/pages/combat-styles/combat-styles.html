@@ -1,0 +1,71 @@
+<h1>Combat Styles</h1>
+
+<div class="container">
+
+  @for (combatStyle of combatStylesList; track combatStyle.id) {
+
+    <mat-card class="combat-card">
+
+      <div class="left">
+
+        @if (combatStyle.img) {
+          <img
+            [src]="combatStyle.img"
+            [alt]="combatStyle.name"
+          >
+        } @else {
+          <p>Sin imagen</p>
+        }
+
+        <p>
+          {{ combatStyle.description }}
+        </p>
+
+      </div>
+
+      <div class="right">
+
+        <mat-card-header>
+          <mat-card-title>
+            {{ combatStyle.id }} - {{ combatStyle.name }}
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+
+          <h3>Characters</h3>
+
+          @for (
+            character of combatStyle.combat_style_character;
+            track character.id
+          ) {
+
+            <p>
+              <strong>
+                {{ character.id }} - {{ character.name }}
+              </strong>
+            </p>
+
+            <p>
+              {{ character.description }}
+            </p>
+
+          } @empty {
+
+            <p>No hay personajes</p>
+
+          }
+
+        </mat-card-content>
+
+      </div>
+
+    </mat-card>
+
+  } @empty {
+
+    <p>No hay estilos de combate</p>
+
+  }
+
+</div>
